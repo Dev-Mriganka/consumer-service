@@ -10,7 +10,6 @@ import java.time.Instant;
 @Data
 public class FileMetadata {
 
-
     private String fileId;
     private String s3Key;
     private String fileName;
