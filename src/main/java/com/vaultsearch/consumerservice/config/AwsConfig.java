@@ -10,7 +10,7 @@ import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 @Configuration
 public class AwsConfig {
 
-    // The SqsClient and DynamoDbClient beans are auto-configured by the starters
+    // The SqsClient and DynamoDbClient beans are autoconfigured by the starters
 
     @Bean
     public DynamoDbClient dynamoDbClient(AwsRegionProvider awsRegionProvider,

@@ -13,6 +13,8 @@ spring:
     uris: https://search-vaultsearch-ltmzjzjbjw2nsa6jkfskeskdme.ap-south-1.es.amazonaws.com
     username: admin
     password: awsi$Lov3
+    connection-timeout: 30s
+    socket-timeout: 30s
 
 aws:
   dynamodb:
@@ -22,5 +24,7 @@ aws:
 
 logging:
   level:
+    root: INFO
+    com.vaultsearch.consumerservice: DEBUG
     org.springframework.data.elasticsearch: DEBUG
-    org.elasticsearch.client: DEBUG
+    co.elastic.clients: DEBUG

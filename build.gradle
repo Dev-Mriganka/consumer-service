@@ -35,7 +35,10 @@ dependencyManagement {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
-    implementation 'org.elasticsearch.client:elasticsearch-rest-client'
+
+    // Updated Elasticsearch dependencies
+    implementation 'co.elastic.clients:elasticsearch-java:8.11.0'
+    implementation 'org.elasticsearch.client:elasticsearch-rest-client:8.11.0'
 
     implementation 'io.awspring.cloud:spring-cloud-aws-starter'
     // SQS, DynamoDB, and Lombok dependencies
