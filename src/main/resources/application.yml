@@ -1,0 +1,26 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: consumer-service
+  cloud:
+    aws:
+      region:
+        static: ap-south-1
+  # Configure the OpenSearch/Elasticsearch endpoint
+  elasticsearch:
+    uris: https://search-vaultsearch-ltmzjzjbjw2nsa6jkfskeskdme.ap-south-1.es.amazonaws.com
+    username: admin
+    password: awsi$Lov3
+
+aws:
+  dynamodb:
+    table-name: vaultsearch-metadata
+  sqs:
+    queue-name: vaultsearch-queue
+
+logging:
+  level:
+    org.springframework.data.elasticsearch: DEBUG
+    org.elasticsearch.client: DEBUG

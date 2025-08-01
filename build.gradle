@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.4'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.vaultsearch'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        // BOM for Spring Cloud AWS
+        mavenBom "io.awspring.cloud:spring-cloud-aws-dependencies:3.1.1"
+        // BOM for the low-level AWS SDK
+        mavenBom "software.amazon.awssdk:bom:2.27.21"
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+    implementation 'org.elasticsearch.client:elasticsearch-rest-client'
+
+    implementation 'io.awspring.cloud:spring-cloud-aws-starter'
+    // SQS, DynamoDB, and Lombok dependencies
+    implementation 'io.awspring.cloud:spring-cloud-aws-starter-sqs'
+    implementation 'software.amazon.awssdk:dynamodb'
+    implementation 'software.amazon.awssdk:dynamodb-enhanced'
+
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
